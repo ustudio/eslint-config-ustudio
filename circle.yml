@@ -1,0 +1,10 @@
+dependencies:
+    cache_directories:
+      - node_modules
+
+    pre:
+      - case $CIRCLE_NODE_INDEX in 0) nvm alias default 4.0 ;; 1) nvm alias default 5.0 ;; esac
+      - nvm use default
+
+    override:
+      - npm install --only=dev
