@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-ustudio",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "resusable ESLint config for uStudio",
   "devDependencies": {
     "ava": "latest",
