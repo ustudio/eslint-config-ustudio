@@ -1,13 +1,4 @@
 module.exports = {
-    /*
-  env: {
-    amd: true,
-    mocha: true
-  },
-  globals: {
-    expect: false
-  },
-   */
   rules: {
     // disallow or require spaces inside of array brackets
     'array-bracket-spacing': [2, 'never'],
@@ -53,7 +44,7 @@ module.exports = {
     // disallow extra boolean casts
     'no-extra-boolean-cast': 2,
     // disallow extra parentheses
-    'no-extra-parens': 0,
+    'no-extra-parens': 2,
     // disallow extra semicolons
     'no-extra-semi': 2,
     // disallow variable declarations function body

@@ -13,6 +13,7 @@ module.exports = {
   },
   plugins: ['babel'],
   rules: {
+    'arrow-spacing': 2,
     'no-var': 2,
     'prefer-arrow-callback': 2,
     'prefer-const': 2,
