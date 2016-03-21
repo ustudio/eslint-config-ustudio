@@ -65,3 +65,17 @@ test('esnext es2016', t => {
   t.is(errors[0].ruleId, 'no-unused-vars');
   t.is(errors[1].ruleId, 'indent');
 });
+
+test('react', t => {
+  const conf = require('../react');
+
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.rules));
+
+  const errors = runEslint('export default React.createClass({' +
+    '\n  render() {\n    <div>Hello {this.props.name}</div>;' + '\n  }\n});\n', conf);
+
+  t.is(errors.length, 2);
+  t.is(errors[0].ruleId, 'react/react-in-jsx-scope');
+  t.is(errors[1].ruleId, 'react/prop-types');
+});
