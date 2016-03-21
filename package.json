@@ -15,7 +15,8 @@
   "files": [
     "browser.js",
     "index.js",
-    "esnext.js"
+    "esnext.js",
+    "react.js"
   ],
   "repository": "ustudio/eslint-config-ustudio",
   "scripts": {
