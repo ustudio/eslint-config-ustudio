@@ -1,16 +1,12 @@
 ## Install
 
 ```shell
-npm install --save-dev eslint git+ssh://git@github.com/ustudio/eslint-config-ustudio.git
+npm install --save-dev git+ssh://git@github.com/ustudio/eslint-config-ustudio.git
 ```
 
-One day after we publish to NPM, it will become:
+This will automatically install `eslint` and `eslint-plugin-react`.
 
-```shell
-npm install --save-dev eslint eslint-config-ustudio
-```
-
-## Usage
+## Configuration
 
 Add the following to your `package.json`:
 
@@ -24,8 +20,20 @@ Add the following to your `package.json`:
   }
 ```
 
+## Usage
+
 Execute the following command:
 
 ```shell
 npm run lint
+```
+
+### Lint in CI
+
+Add the following to your `circle.yml`:
+
+```yaml
+test:
+  pre:
+    - npm run lint
 ```
