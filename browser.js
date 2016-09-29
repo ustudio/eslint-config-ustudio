@@ -1,7 +1,9 @@
-'use strict';
-
 module.exports = {
-  extends: require('path').join(__dirname, 'index.js'),
+  extends: [
+    './rules/best-practices',
+    './rules/errors',
+    './rules/style'
+  ].map(require.resolve),
   env: {
     browser: true,
     node: false
