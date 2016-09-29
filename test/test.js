@@ -1,12 +1,11 @@
 import test from 'ava';
 import isPlainObj from 'is-plain-object';
 import eslint from 'eslint';
-import tempWrite from 'temp-write';
 
 function runEslint(str, conf) {
   const linter = new eslint.CLIEngine({
     useEslintrc: false,
-    configFile: tempWrite.sync(JSON.stringify(conf))
+    baseConfig: conf
   });
 
   return linter.executeOnText(str).results[0].messages;
@@ -31,13 +30,26 @@ test('browser', t => {
 
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.env));
-  //t.false('rules' in conf);
+  t.true(conf.env.browser);
 
   const errors = runEslint('var document = 1;\n', conf);
 
   t.is(errors.length, 2);
   t.is(errors[0].ruleId, 'no-redeclare');
   t.is(errors[1].ruleId, 'no-unused-vars');
+});
+
+test('es6', t => {
+  const conf = require('../esnext');
+
+  t.true(isPlainObj(conf));
+  t.true(isPlainObj(conf.rules));
+
+  const errors = runEslint('function gen() {};\n', conf);
+
+  t.is(errors.length, 2);
+  t.is(errors[0].ruleId, 'no-unused-vars');
+  t.is(errors[1].ruleId, 'no-extra-semi');
 });
 
 test('esnext', t => {
