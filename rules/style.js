@@ -27,8 +27,8 @@ module.exports = {
     }],
     // require parentheses for constructors
     'new-parens': 2,
-    // disallow extra parentheses
-    'no-extra-parens': 2,
+    // allow extra parentheses (so you can make your code clearer!!!!)
+    'no-extra-parens': 0,
     // disallow mixing spaces and tabs
     'no-mixed-spaces-and-tabs': 2,
     // disallow multiple spaces
