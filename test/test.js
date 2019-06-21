@@ -71,7 +71,7 @@ test('esnext es2016', t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('let unused; const x = async () => {\n\tawait Promise.resolve({b: 1, ...x});\n};\n', conf);
+  const errors = runEslint('let unused; const x = async() => {\n\tawait Promise.resolve({b: 1, ...x});\n};\nx();\n', conf);
 
   t.is(errors.length, 2);
   t.is(errors[0].ruleId, 'no-unused-vars');
@@ -84,7 +84,7 @@ test('react', t => {
   t.true(isPlainObj(conf));
   t.true(isPlainObj(conf.rules));
 
-  const errors = runEslint('export default React.createClass({' +
+  const errors = runEslint('export default React.createReactClass({' +
     '\n  render() {\n    <div>Hello {this.props.name}</div>;' + '\n  }\n});\n', conf);
 
   t.is(errors.length, 2);
