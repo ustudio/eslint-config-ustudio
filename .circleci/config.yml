@@ -23,3 +23,13 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
 
       - run: npm test
+
+      - run:
+          name: npm pack
+          command: |
+            mkdir -p artifacts
+            npm pack
+            mv eslint-config-ustudio-*.tgz artifacts/
+
+      - store_artifacts:
+          path: artifacts
