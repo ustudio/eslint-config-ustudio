@@ -10,7 +10,7 @@
     "is-plain-object": "latest"
   },
   "peerDependencies": {
-    "eslint": ">= 4.18.2",
+    "eslint": ">= 6.0.0",
     "eslint-plugin-react": ">= 7.0.0"
   },
   "repository": "ustudio/eslint-config-ustudio",
