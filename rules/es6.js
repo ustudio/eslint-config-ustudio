@@ -23,7 +23,7 @@ module.exports = {
     // suggest using arrow functions as callbacks
     'prefer-arrow-callback': 2,
     // suggest using const where applicable
-    'prefer-const': 1,
+    'prefer-const': 2,
     // use rest parameters instead of arguments
     'prefer-rest-params': 2,
     // use template string over string concatenation

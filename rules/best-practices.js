@@ -25,7 +25,7 @@ module.exports = {
     // disallow trailing whitespace
     'no-trailing-spaces': 2,
     // disallow unused variables
-    'no-unused-vars': [1, {
+    'no-unused-vars': [2, {
       'vars': 'all',
       'args': 'after-used',
       'varsIgnorePattern': 'React'

@@ -33,7 +33,7 @@ module.exports = {
     // prevent usage of unknown DOM property
     'react/no-unknown-property': 2,
     // prevent missing props validation in a React component definition
-    'react/prop-types': 1,
+    'react/prop-types': 2,
     // prevent missing React when using JSX
     'react/react-in-jsx-scope': 2,
     // restrict file extensions that may be required
