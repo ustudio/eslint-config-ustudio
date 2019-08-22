@@ -3,11 +3,11 @@ module.exports = {
     // require braces in arrow function body
     'arrow-body-style': [2, 'as-needed'],
     // require parens in arrow function arguments
-    'arrow-parens': [2, 'as-needed'],
+    'arrow-parens': [2, 'always'],
     // require space before/after arrow function's arrow
     'arrow-spacing': 2,
     // spacing for generator functions
-    'generator-star-spacing': 2,
+    'generator-star-spacing': [2, 'after'],
     // disallow duplicate imports
     'no-duplicate-imports': 2,
     // disallow unnecessary computed property keys on objects

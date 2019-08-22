@@ -33,6 +33,8 @@ module.exports = {
     // disallow unnecessary .call() and .apply()
     'no-useless-call': 2,
     // disallow Yoda conditions
-    'yoda': 2
+    'yoda': 2,
+    // disallow undeclared variables
+    'no-undef': 2
   }
 };

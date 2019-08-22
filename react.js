@@ -7,11 +7,15 @@ module.exports = {
     './rules/es6',
     './rules/react'
   ].map(require.resolve),
+  settings: {
+    react: {
+      version: "detect"
+    }
+  },
   parserOptions: {
     ecmaVersion: 6,
     sourceType: 'module',
     ecmaFeatures: {
-      experimentalObjectRestSpread: true,
       jsx: true
     }
   },

@@ -6,5 +6,8 @@ module.exports = {
   ].map(require.resolve),
   rules: {
     strict: 0
+  },
+  env: {
+    jest: true
   }
 };
