@@ -21,10 +21,28 @@ module.exports = {
     // enforce consistent line breaking
     'linebreak-style': 2,
     // require a capital letter for constructors
-    'new-cap': [1, {
-      'capIsNew': true,
-      'capIsNewExceptions': ['Polymer', 'Q', 'Promise', '$.Deferred', '$.Event']
-    }],
+    'new-cap': [
+      1,
+      {
+        capIsNew: true,
+        capIsNewExceptions: [
+          '$.Deferred',
+          '$.Event',
+          'Collection',
+          'List',
+          'Map',
+          'OrderedMap',
+          'Polymer',
+          'Promise',
+          'Q',
+          'Range',
+          'Records',
+          'Set',
+          'Seq',
+          'Stack'
+        ]
+      }
+    ],
     // require parentheses for constructors
     'new-parens': 2,
     // allow extra parentheses (so you can make your code clearer!!!!)

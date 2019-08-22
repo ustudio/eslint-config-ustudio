@@ -27,7 +27,8 @@ module.exports = {
     // disallow unused variables
     'no-unused-vars': [2, {
       'vars': 'all',
-      'args': 'after-used'
+      'args': 'after-used',
+      'varsIgnorePattern': 'React'
     }],
     // disallow unnecessary .call() and .apply()
     'no-useless-call': 2,
