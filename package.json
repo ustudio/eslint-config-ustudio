@@ -4,7 +4,7 @@
   "description": "resusable ESLint config for uStudio",
   "dependencies": {},
   "devDependencies": {
-    "ava": "latest",
+    "ava": "^2.3.0",
     "eslint": "latest",
     "eslint-plugin-react": "latest",
     "is-plain-object": "latest"
