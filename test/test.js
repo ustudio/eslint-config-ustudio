@@ -1,5 +1,5 @@
 import test from 'ava';
-import isPlainObj from 'is-plain-object';
+import {isPlainObject} from 'is-plain-object';
 import eslint from 'eslint';
 
 function runEslint(str, conf) {
@@ -14,8 +14,8 @@ function runEslint(str, conf) {
 test('main', t => {
   const conf = require('..');
 
-  t.true(isPlainObj(conf));
-  t.true(isPlainObj(conf.rules));
+  t.true(isPlainObject(conf));
+  t.true(isPlainObject(conf.rules));
 
   const errors = runEslint('\'use strict\';\nconsole.log("unicorn")\n', conf);
 
@@ -28,8 +28,8 @@ test('main', t => {
 test('browser', t => {
   const conf = require('../browser');
 
-  t.true(isPlainObj(conf));
-  t.true(isPlainObj(conf.env));
+  t.true(isPlainObject(conf));
+  t.true(isPlainObject(conf.env));
   t.true(conf.env.browser);
 
   const errors = runEslint('var document = 1;\n', conf);
@@ -42,8 +42,8 @@ test('browser', t => {
 test('es6', t => {
   const conf = require('../esnext');
 
-  t.true(isPlainObj(conf));
-  t.true(isPlainObj(conf.rules));
+  t.true(isPlainObject(conf));
+  t.true(isPlainObject(conf.rules));
 
   const errors = runEslint('function gen() {};\n', conf);
 
@@ -55,8 +55,8 @@ test('es6', t => {
 test('esnext', t => {
   const conf = require('../esnext');
 
-  t.true(isPlainObj(conf));
-  t.true(isPlainObj(conf.rules));
+  t.true(isPlainObject(conf));
+  t.true(isPlainObject(conf.rules));
 
   const errors = runEslint('var foo = true;\n', conf);
 
@@ -68,8 +68,8 @@ test('esnext', t => {
 test('esnext es2016', t => {
   const conf = require('../esnext');
 
-  t.true(isPlainObj(conf));
-  t.true(isPlainObj(conf.rules));
+  t.true(isPlainObject(conf));
+  t.true(isPlainObject(conf.rules));
 
   const errors = runEslint('let unused; const x = async() => {\n\tawait Promise.resolve({b: 1, ...x});\n};\nx();\n', conf);
 
@@ -81,8 +81,8 @@ test('esnext es2016', t => {
 test('react', t => {
   const conf = require('../react');
 
-  t.true(isPlainObj(conf));
-  t.true(isPlainObj(conf.rules));
+  t.true(isPlainObject(conf));
+  t.true(isPlainObject(conf.rules));
 
   const errors = runEslint('export default React.createReactClass({' +
     '\n  render() {\n    <div>Hello {this.props.name}</div>;' + '\n  }\n});\n', conf);
