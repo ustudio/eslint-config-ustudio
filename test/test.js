@@ -2,22 +2,24 @@ import test from 'ava';
 import {isPlainObject} from 'is-plain-object';
 import eslint from 'eslint';
 
-function runEslint(str, conf) {
-  const linter = new eslint.CLIEngine({
+async function runEslint(str, conf) {
+  const linter = new eslint.ESLint({
     useEslintrc: false,
     baseConfig: conf
   });
 
-  return linter.executeOnText(str).results[0].messages;
+  const results = await linter.lintText(str);
+
+  return results[0].messages;
 }
 
-test('main', t => {
+test('main', async(t) => {
   const conf = require('..');
 
   t.true(isPlainObject(conf));
   t.true(isPlainObject(conf.rules));
 
-  const errors = runEslint('\'use strict\';\nconsole.log("unicorn")\n', conf);
+  const errors = await runEslint('\'use strict\';\nconsole.log("unicorn")\n', conf);
 
   t.is(errors.length, 3);
   t.is(errors[0].ruleId, 'no-console');
@@ -25,66 +27,66 @@ test('main', t => {
   t.is(errors[2].ruleId, 'semi');
 });
 
-test('browser', t => {
+test('browser', async(t) => {
   const conf = require('../browser');
 
   t.true(isPlainObject(conf));
   t.true(isPlainObject(conf.env));
   t.true(conf.env.browser);
 
-  const errors = runEslint('var document = 1;\n', conf);
+  const errors = await runEslint('var document = 1;\n', conf);
 
   t.is(errors.length, 2);
   t.is(errors[0].ruleId, 'no-redeclare');
   t.is(errors[1].ruleId, 'no-unused-vars');
 });
 
-test('es6', t => {
+test('es6', async(t) => {
   const conf = require('../esnext');
 
   t.true(isPlainObject(conf));
   t.true(isPlainObject(conf.rules));
 
-  const errors = runEslint('function gen() {};\n', conf);
+  const errors = await runEslint('function gen() {};\n', conf);
 
   t.is(errors.length, 2);
   t.is(errors[0].ruleId, 'no-unused-vars');
   t.is(errors[1].ruleId, 'no-extra-semi');
 });
 
-test('esnext', t => {
+test('esnext', async(t) => {
   const conf = require('../esnext');
 
   t.true(isPlainObject(conf));
   t.true(isPlainObject(conf.rules));
 
-  const errors = runEslint('var foo = true;\n', conf);
+  const errors = await runEslint('var foo = true;\n', conf);
 
   t.is(errors.length, 2);
   t.is(errors[0].ruleId, 'no-var');
   t.is(errors[1].ruleId, 'no-unused-vars');
 });
 
-test('esnext es2016', t => {
+test('esnext es2016', async(t) => {
   const conf = require('../esnext');
 
   t.true(isPlainObject(conf));
   t.true(isPlainObject(conf.rules));
 
-  const errors = runEslint('let unused; const x = async() => {\n\tawait Promise.resolve({b: 1, ...x});\n};\nx();\n', conf);
+  const errors = await runEslint('let unused; const x = async() => {\n\tawait Promise.resolve({b: 1, ...x});\n};\nx();\n', conf);
 
   t.is(errors.length, 2);
   t.is(errors[0].ruleId, 'no-unused-vars');
   t.is(errors[1].ruleId, 'indent');
 });
 
-test('react', t => {
+test('react', async(t) => {
   const conf = require('../react');
 
   t.true(isPlainObject(conf));
   t.true(isPlainObject(conf.rules));
 
-  const errors = runEslint('export default React.createReactClass({' +
+  const errors = await runEslint('export default React.createReactClass({' +
     '\n  render() {\n    <div>Hello {this.props.name}</div>;' + '\n  }\n});\n', conf);
 
   t.is(errors.length, 2);
