@@ -5,7 +5,7 @@
   "dependencies": {},
   "devDependencies": {
     "@ava/babel": "^1.0.1",
-    "ava": "^3.12.1",
+    "ava": "^5.3.1",
     "eslint": "latest",
     "eslint-plugin-react": "latest",
     "is-plain-object": "latest"
