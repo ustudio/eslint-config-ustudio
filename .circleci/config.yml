@@ -11,24 +11,22 @@ jobs:
 
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
-            - v1-dependencies-{{ checksum "package.json" }}-
-            - v1-dependencies-
+            - v1-dependencies-{{ checksum "yarn.lock" }}
 
-      - run: npm install
+      - run: yarn
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "package-lock.json" }}
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
 
-      - run: npm test
+      - run: yarn test
 
       - run:
           name: npm pack
           command: |
             mkdir -p artifacts
-            npm pack
+            yarn pack
             mv eslint-config-ustudio-*.tgz artifacts/
 
       - store_artifacts:
