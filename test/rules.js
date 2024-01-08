@@ -1,7 +1,6 @@
-import fs from 'fs';
-import path from 'path';
-
-import test from 'ava';
+const fs = require('fs');
+const path = require('path');
+const test = require('ava');
 
 fs.readdirSync(path.join(__dirname, '../rules'))
   .forEach(name => {

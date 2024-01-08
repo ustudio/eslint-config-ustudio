@@ -1,6 +1,6 @@
-import test from 'ava';
-import {isPlainObject} from 'is-plain-object';
-import eslint from 'eslint';
+const test = require('ava');
+const {isPlainObject} = require('is-plain-object');
+const eslint = require('eslint');
 
 async function runEslint(str, conf) {
   const linter = new eslint.ESLint({
