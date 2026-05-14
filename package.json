@@ -15,5 +15,6 @@
   "repository": "ustudio/eslint-config-ustudio",
   "scripts": {
     "test": "ava"
-  }
+  },
+  "packageManager": "yarn@4.14.1"
 }

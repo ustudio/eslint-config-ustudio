@@ -13,7 +13,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "yarn.lock" }}
 
-      - run: yarn
+      - run: corepack enable --install-directory ~/bin && yarn
 
       - save_cache:
           paths:
