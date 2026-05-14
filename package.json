@@ -4,9 +4,9 @@
   "description": "resusable ESLint config for uStudio",
   "devDependencies": {
     "ava": "^8.0.0",
-    "eslint": "latest",
-    "eslint-plugin-react": "latest",
-    "is-plain-object": "latest"
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "is-plain-object": "^5.0.0"
   },
   "peerDependencies": {
     "eslint": ">= 6.0.0",
