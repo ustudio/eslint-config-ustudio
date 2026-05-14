@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const test = require('ava');
+const test = require('ava').default;
 
 fs.readdirSync(path.join(__dirname, '../rules'))
   .forEach(name => {

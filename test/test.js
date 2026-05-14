@@ -1,4 +1,4 @@
-const test = require('ava');
+const test = require('ava').default;
 const {isPlainObject} = require('is-plain-object');
 const eslint = require('eslint');
 

@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: cimg/node:18.18
+      - image: cimg/node:24.15
 
     working_directory: ~/repo
 
@@ -13,7 +13,7 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "yarn.lock" }}
 
-      - run: yarn
+      - run: corepack enable --install-directory ~/bin && yarn
 
       - save_cache:
           paths:
@@ -26,8 +26,7 @@ jobs:
           name: npm pack
           command: |
             mkdir -p artifacts
-            yarn pack
-            mv eslint-config-ustudio-*.tgz artifacts/
+            yarn pack --out artifacts/%s-%v.tgz
 
       - store_artifacts:
           path: artifacts
