@@ -26,8 +26,7 @@ jobs:
           name: npm pack
           command: |
             mkdir -p artifacts
-            yarn pack
-            mv eslint-config-ustudio-*.tgz artifacts/
+            yarn pack --out artifacts/%s-%v.tgz
 
       - store_artifacts:
           path: artifacts
